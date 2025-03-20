@@ -11,8 +11,8 @@ namespace LibraryApi.Application.Authors
         {
             var author = mapper.Map(command);
 
-            await _context.AddAsync(author, cancellationToken);
-            await _context.SaveChangesAsync(cancellationToken);
+            await _context.AppendAsync(author, cancellationToken);
+            await _context.SaveAsync(cancellationToken);
 
             return new CreateAuthorCommandResult(author.Id);
         }
