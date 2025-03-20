@@ -8,7 +8,7 @@ namespace LibraryApi.Api
     /// </summary>
     public static class ApiServices
     {
-        public static IApplicationBuilder AddApiEndpoints(this WebApplication application)
+        public static IApplicationBuilder UseApiEndpoints(this WebApplication application)
         {
             AuthorEndpoints.Register(application);
             return application;

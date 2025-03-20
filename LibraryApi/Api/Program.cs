@@ -14,7 +14,7 @@ builder.AddInfrastructureServices();
 var app = builder.Build();
 
 // Add API endpoints
-app.AddApiEndpoints();
+app.UseApiEndpoints();
 
 // Activation de Swagger
 if (app.Environment.IsDevelopment())
