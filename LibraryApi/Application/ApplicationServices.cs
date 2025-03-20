@@ -3,6 +3,10 @@ using MediatR;
 
 namespace LibraryApi.Application
 {
+    /// <summary>
+    /// This class provides an extension method to register the application related services in the web application.
+    //  It ensures that specific Application DI are added during application startup, simplifying application layer management.
+    /// </summary>
     public static class ApplicationServices
     {
         public static WebApplicationBuilder AddApplicationServices(this WebApplicationBuilder builder)
