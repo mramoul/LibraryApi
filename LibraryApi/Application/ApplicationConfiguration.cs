@@ -7,7 +7,7 @@ namespace LibraryApi.Application
     /// This class provides an extension method to register the application related services in the web application.
     //  It ensures that specific Application DI are added during application startup, simplifying application layer management.
     /// </summary>
-    public static class ApplicationServices
+    public static class ApplicationConfiguration
     {
         public static WebApplicationBuilder AddApplicationServices(this WebApplicationBuilder builder)
         {

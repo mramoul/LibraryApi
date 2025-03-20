@@ -6,7 +6,7 @@ namespace LibraryApi.Api
     /// This class provides an extension method to register API endpoints in a web application.
     //  It ensures that specific API routes are added during application startup, simplifying endpoint management.
     /// </summary>
-    public static class ApiServices
+    public static class ApiConfiguration
     {
         public static IApplicationBuilder UseApiEndpoints(this WebApplication application)
         {
