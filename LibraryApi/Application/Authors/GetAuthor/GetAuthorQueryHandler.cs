@@ -1,3 +1,4 @@
+using LibraryApi.Application.Errors;
 using LibraryApi.Application.Services.Authors;
 using MediatR;
 
@@ -15,7 +16,7 @@ namespace LibraryApi.Application.Authors
             var author = await authorServices.GetByIdAsync(query.Id, cancellationToken);
 
             if(author is null)
-                throw new NotFoundException($"Author with ID {query.Id} was not found.");
+                throw new NotFoundError($"Author with ID {query.Id} was not found.");
                 
             var result = mapper.Map(author);
 

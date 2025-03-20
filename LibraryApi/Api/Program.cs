@@ -13,6 +13,9 @@ builder.AddInfrastructureServices();
 // Build the app
 var app = builder.Build();
 
+// Add Middlewares
+app.UseMiddlewares();
+
 // Add API endpoints
 app.UseApiEndpoints();
 

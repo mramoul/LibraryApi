@@ -12,6 +12,11 @@ namespace LibraryApi.Api
         {
             AuthorEndpoints.Register(application);
             
+            return application;
+        }
+
+        public static IApplicationBuilder UseMiddlewares(this WebApplication application)
+        {            
             application.UseMiddleware<ExceptionMiddleware>();
 
             return application;
