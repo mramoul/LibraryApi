@@ -3,6 +3,9 @@ using MediatR;
 
 namespace LibraryApi.Api.Authors
 {
+    /// <summary>
+    /// Contains the complete Author's endpoints registration.
+    /// </summary>
     public static class AuthorEndpoints{
 
         public static WebApplication Register(WebApplication application)
