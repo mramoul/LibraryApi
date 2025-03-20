@@ -8,16 +8,14 @@ namespace LibraryApi.Application.Authors
     /// </summary>
     /// <param name="context">Db Context</param>
     /// <param name="mapper">Maps the command data to the entity representation</param>
-    public class CreateAAuthorCommandHandler(IApplicationDbContext context, ICreateAuthorCommandMapper mapper) : IRequestHandler<CreateAuthorCommand, CreateAuthorCommandResult>
+    public class CreateAuthorCommandHandler(IApplicationDbContext context, ICreateAuthorCommandMapper mapper) : IRequestHandler<CreateAuthorCommand, CreateAuthorCommandResult>
     {
-        private readonly IApplicationDbContext _context = context;
-
         public async Task<CreateAuthorCommandResult> Handle(CreateAuthorCommand command, CancellationToken cancellationToken)
         {
             var author = mapper.Map(command);
 
-            await _context.AppendAsync(author, cancellationToken);
-            await _context.SaveAsync(cancellationToken);
+            await context.AppendAsync(author, cancellationToken);
+            await context.SaveAsync(cancellationToken);
 
             return new CreateAuthorCommandResult(author.Id);
         }

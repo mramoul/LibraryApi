@@ -8,7 +8,7 @@ namespace LibraryApi.Application.Authors
     /// </summary>
     public class CreateAuthorCommand : IRequest<CreateAuthorCommandResult>
     {
-         public string FirstName { get; set; } = string.Empty;
+        public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;
         public DateTime BirthDate { get; set; }
     }
