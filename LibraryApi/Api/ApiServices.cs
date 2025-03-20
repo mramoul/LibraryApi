@@ -1,7 +1,7 @@
 using LibraryApi.Api.Authors;
 
 namespace LibraryApi.Api{
-    public static class ApiService
+    public static class ApiServices
     {
         public static IApplicationBuilder AddApiEndpoints(this WebApplication application)
         {
