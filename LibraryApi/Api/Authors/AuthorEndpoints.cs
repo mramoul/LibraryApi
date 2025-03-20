@@ -1,5 +1,6 @@
 using LibraryApi.Application.Authors;
 using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryApi.Api.Authors
 {
@@ -14,6 +15,12 @@ namespace LibraryApi.Api.Authors
             {
                 var authorId = await mediator.Send(command);
                 return Results.Created($"api/author/{authorId}", authorId);
+            });
+
+            application.MapGet("/api/author", async (Guid id, IMediator mediator) =>
+            {
+                var author = await mediator.Send(new GetAuthorQuery(id));
+                return Results.Ok(author);
             });
 
             return application;
