@@ -1,4 +1,5 @@
 using LibraryApi.Application.Authors.CreateAuthor;
+using LibraryApi.Application.Authors.DeleteAuthor;
 using LibraryApi.Application.Authors.GetAuthor;
 using MediatR;
 
@@ -21,6 +22,12 @@ namespace LibraryApi.Api.Authors
             {
                 var author = await mediator.Send(new GetAuthorQuery(id));
                 return Results.Ok(author);
+            });
+
+            application.MapDelete("/api/author", async (Guid id, IMediator mediator) =>
+            {
+                var result = await mediator.Send(new DeleteAuthorCommand(id));
+                return Results.Ok(result.Message);
             });
 
             return application;
