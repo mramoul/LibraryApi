@@ -1,4 +1,4 @@
-using LibraryApi.Application.Authors;
+using LibraryApi.Application.Authors.CreateAuthor;
 using LibraryApi.Application.Authors.GetAuthor;
 using MediatR;
 

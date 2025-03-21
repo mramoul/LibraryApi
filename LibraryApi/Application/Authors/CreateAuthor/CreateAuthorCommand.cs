@@ -1,6 +1,6 @@
 using MediatR;
 
-namespace LibraryApi.Application.Authors
+namespace LibraryApi.Application.Authors.CreateAuthor
 {
     /// <summary>
     /// Represents the data command required to create a new author,

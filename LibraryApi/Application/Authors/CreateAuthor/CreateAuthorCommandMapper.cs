@@ -1,5 +1,5 @@
 using LibraryApi.Domain.Entities;
-namespace LibraryApi.Application.Authors
+namespace LibraryApi.Application.Authors.CreateAuthor
 {
     /// <summary>
     /// Defines a mapper to convert a <see cref="CreateAuthorCommand"/> into an <see cref="Author"/> entity.
