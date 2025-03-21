@@ -7,7 +7,7 @@ namespace LibraryApi.Infrastructure
     /// This class provides an extension method to register the infrastructure related services in the web application.
     //  It ensures that specific Infrastructure DI are added during application startup, simplifying infrastructure management.
     /// </summary>
-    public static class InfrastructureServices
+    public static class InfrastructureConfiguration
     {
         public static WebApplicationBuilder AddInfrastructureServices(this WebApplicationBuilder builder)
         {

@@ -13,8 +13,11 @@ builder.AddInfrastructureServices();
 // Build the app
 var app = builder.Build();
 
+// Add Middlewares
+app.UseMiddlewares();
+
 // Add API endpoints
-app.AddApiEndpoints();
+app.UseApiEndpoints();
 
 // Activation de Swagger
 if (app.Environment.IsDevelopment())

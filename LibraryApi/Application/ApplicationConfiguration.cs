@@ -1,4 +1,7 @@
 using LibraryApi.Application.Authors;
+using LibraryApi.Application.Authors.GetAuthor;
+using LibraryApi.Application.Services;
+using LibraryApi.Application.Services.Authors;
 using MediatR;
 
 namespace LibraryApi.Application
@@ -7,11 +10,12 @@ namespace LibraryApi.Application
     /// This class provides an extension method to register the application related services in the web application.
     //  It ensures that specific Application DI are added during application startup, simplifying application layer management.
     /// </summary>
-    public static class ApplicationServices
+    public static class ApplicationConfiguration
     {
         public static WebApplicationBuilder AddApplicationServices(this WebApplicationBuilder builder)
         {
             AddMediator(builder);
+            AddServices(builder);
             AddMappers(builder);
 
             return builder;
@@ -22,9 +26,16 @@ namespace LibraryApi.Application
             builder.Services.AddMediatR(typeof(Program).Assembly);
         }
 
+        private static void AddServices(WebApplicationBuilder builder)
+        {
+            builder.Services.AddScoped(typeof(IBaseServices<>), typeof(BaseServices<>));
+            builder.Services.AddScoped<IAuthorServices, AuthorServices>();
+        }
+
         private static void AddMappers(WebApplicationBuilder builder)
         {
             builder.Services.AddSingleton<ICreateAuthorCommandMapper, CreateAuthorCommandMapper>();
+            builder.Services.AddSingleton<IGetAuthorQueryMapper, GetAuthorQueryMapper>();
         }
     }
 }
