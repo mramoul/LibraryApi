@@ -7,7 +7,7 @@ namespace LibraryApi.Application.Authors.CreateAuthor
     /// Handles the <see cref="CreateAuthorCommand"/>, returns the result with the created author's ID.
     /// </summary>
     /// <param name="context">Db Context</param>
-    /// <param name="mapper">Maps the command data to the entity representation</param>
+    /// <param name="mapper">Maps the DB source data to the result representation</param>
     public class CreateAuthorCommandHandler(IApplicationDbContext context, ICreateAuthorCommandMapper mapper) : IRequestHandler<CreateAuthorCommand, CreateAuthorCommandResult>
     {
         public async Task<CreateAuthorCommandResult> Handle(CreateAuthorCommand command, CancellationToken cancellationToken)

@@ -23,7 +23,10 @@ app.UseApiEndpoints();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(op =>{
+    op.DefaultModelsExpandDepth(-1);
+    op.EnableTryItOutByDefault();
+    });
 }
 
 app.UseHttpsRedirection();
