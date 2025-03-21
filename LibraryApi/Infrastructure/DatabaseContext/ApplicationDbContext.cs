@@ -14,6 +14,7 @@ namespace LibraryApi.Infrastructure.DataBaseContext
         DbSet<Author> Authors { get; set; }
         Task<int> SaveAsync(CancellationToken cancellationToken);
         Task AppendAsync<TEntity>(TEntity entity, CancellationToken cancellationToken = default) where TEntity : Entity;
+        void Delete<TEntity>(TEntity entity) where TEntity : Entity;
         Task<TEntity?> RetrieveAsync<TEntity>(Guid id, CancellationToken cancellationToken = default) where TEntity : Entity;
     }
 
@@ -25,6 +26,11 @@ namespace LibraryApi.Infrastructure.DataBaseContext
         public Task<int> SaveAsync(CancellationToken cancellationToken)
         {
             return base.SaveChangesAsync(cancellationToken);
+        }
+
+        public void Delete<TEntity>(TEntity entity) where TEntity : Entity
+        {
+            Set<TEntity>().Remove(entity);
         }
 
         public async Task AppendAsync<TEntity>(TEntity entity, CancellationToken cancellationToken = default) where TEntity : Entity

@@ -1,7 +1,7 @@
 using LibraryApi.Infrastructure.DataBaseContext;
 using MediatR;
 
-namespace LibraryApi.Application.Authors
+namespace LibraryApi.Application.Authors.CreateAuthor
 {
     /// <summary>
     /// Handles the <see cref="CreateAuthorCommand"/>, returns the result with the created author's ID.
