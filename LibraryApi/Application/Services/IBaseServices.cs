@@ -11,5 +11,12 @@ namespace LibraryApi.Application.Services
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The desired entity</returns>
         Task<TEntity?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Retrieve all entity's records from the database.
+        /// </summary>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>The desired entity</returns>
+        Task<List<TEntity>> GetListdAsync(CancellationToken cancellationToken = default);
     }
 }

@@ -27,7 +27,10 @@ namespace LibraryApi.Infrastructure
         private static void AddSwagger(WebApplicationBuilder builder)
         {
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(options =>
+            {
+                
+            });
         }
     }
 }
