@@ -1,4 +1,5 @@
 using LibraryApi.Application.Authors;
+using LibraryApi.Application.Authors.GetAuthor;
 using LibraryApi.Application.Services;
 using LibraryApi.Application.Services.Authors;
 using MediatR;

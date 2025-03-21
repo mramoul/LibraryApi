@@ -1,7 +1,7 @@
-namespace LibraryApi.Application.Authors
+namespace LibraryApi.Application.Authors.GetAuthor
 {
     /// <summary>
-    /// Defines a record to return the result of <see cref="GetAuthorQuery"/>, containing the new author's unique `Id`.
+    /// Defines a record to return the result of <see cref="GetAuthorQuery"/>, containing the author's data.
     /// </summary>
     /// <param name="Id">Id of the entity</param>
     public record GetAuthorQueryResult(Guid Id)

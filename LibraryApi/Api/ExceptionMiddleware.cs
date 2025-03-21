@@ -2,6 +2,10 @@ using LibraryApi.Application.Errors;
 
 namespace LibraryApi.Api
 {
+    /// <summary>
+    /// Middleware that handles global exceptions in the API by intercepting errors and returning appropriate HTTP status codes.
+    /// </summary>
+    /// <param name="next">Http request</param>
     public class ExceptionMiddleware(RequestDelegate next)
     {
         public async Task Invoke(HttpContext context)

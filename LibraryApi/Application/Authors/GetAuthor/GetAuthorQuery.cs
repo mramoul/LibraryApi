@@ -1,10 +1,10 @@
 using MediatR;
 
-namespace LibraryApi.Application.Authors
+namespace LibraryApi.Application.Authors.GetAuthor
 {
     /// <summary>
-    /// Represents the data command required to create a new author,
-    //  used to trigger the author creation process through Mediator.
+    /// Represents the query required to get an author,
+    //  used to trigger the author retrieve process through Mediator.
     /// </summary>
     public record GetAuthorQuery(Guid Id) : IRequest<GetAuthorQueryResult>;
 }

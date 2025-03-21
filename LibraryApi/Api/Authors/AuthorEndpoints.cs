@@ -1,6 +1,6 @@
 using LibraryApi.Application.Authors;
+using LibraryApi.Application.Authors.GetAuthor;
 using MediatR;
-using Microsoft.AspNetCore.Mvc;
 
 namespace LibraryApi.Api.Authors
 {
