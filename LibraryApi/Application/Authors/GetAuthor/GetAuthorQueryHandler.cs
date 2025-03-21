@@ -8,7 +8,7 @@ namespace LibraryApi.Application.Authors.GetAuthor
     /// Handles the <see cref="GetAuthorQuery"/>, returns the result with the author's data.
     /// </summary>
     /// <param name="authorServices">Service to retrieve data from the Db Context</param>
-    /// <param name="mapper">Maps the entity data to the DTO representation</param>
+    /// <param name="mapper">Maps the DB source data to the result representation</param>
     public class GetAuthorQueryHandler(IAuthorServices authorServices, IGetAuthorQueryMapper mapper) : IRequestHandler<GetAuthorQuery, GetAuthorQueryResult>
     {
         public async Task<GetAuthorQueryResult> Handle(GetAuthorQuery query, CancellationToken cancellationToken)

@@ -16,6 +16,7 @@ namespace LibraryApi.Infrastructure.DataBaseContext
         Task AppendAsync<TEntity>(TEntity entity, CancellationToken cancellationToken = default) where TEntity : Entity;
         void Delete<TEntity>(TEntity entity) where TEntity : Entity;
         Task<TEntity?> RetrieveAsync<TEntity>(Guid id, CancellationToken cancellationToken = default) where TEntity : Entity;
+        Task<List<TEntity>> ListAsync<TEntity>(CancellationToken cancellationToken = default) where TEntity : Entity;
     }
 
     /// <inheritdoc />  
@@ -41,6 +42,11 @@ namespace LibraryApi.Infrastructure.DataBaseContext
         public async Task<TEntity?> RetrieveAsync<TEntity>(Guid id, CancellationToken cancellationToken = default) where TEntity : Entity
         {
             return await Set<TEntity>().FirstOrDefaultAsync(e => e.Id == id, cancellationToken);
+        }
+
+        public async Task<List<TEntity>> ListAsync<TEntity>(CancellationToken cancellationToken = default) where TEntity : Entity
+        {
+            return await Set<TEntity>().ToListAsync(cancellationToken);
         }
     }
 }

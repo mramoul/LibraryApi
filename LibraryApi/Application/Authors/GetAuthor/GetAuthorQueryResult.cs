@@ -6,8 +6,8 @@ namespace LibraryApi.Application.Authors.GetAuthor
     /// <param name="Id">Id of the entity</param>
     public record GetAuthorQueryResult(Guid Id)
     {
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
-        public DateTime BirthDate { get; set; }
+        public string FirstName { get; init; } = string.Empty;
+        public string LastName { get; init; } = string.Empty;
+        public DateTime BirthDate { get; init; }
     }
 }
