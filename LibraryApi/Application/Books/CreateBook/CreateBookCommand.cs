@@ -11,7 +11,6 @@ namespace LibraryApi.Application.Books.CreateBook
         public string Title { get; init; } = string.Empty;
         public string ISBN { get; init; } = string.Empty;
         public DateTime PublishedDate { get; init; }
-
         public required Guid AuthorId {get; init;}
     }
 }
