@@ -5,6 +5,7 @@ using LibraryApi.Application.Authors.UpdateAuthor;
 using LibraryApi.Application.Books.CreateBook;
 using LibraryApi.Application.Books.GetBook;
 using LibraryApi.Application.Books.Mappers;
+using LibraryApi.Application.Books.UpdateBook;
 using LibraryApi.Application.Services;
 using LibraryApi.Application.Services.Authors;
 using MediatR;
@@ -55,8 +56,7 @@ namespace LibraryApi.Application
             builder.Services.AddSingleton<ICreateBookCommandMapper, CreateBookCommandMapper>();
             builder.Services.AddSingleton<IAuthorMapper, AuthorMapper>();
             builder.Services.AddSingleton<IGetBookQueryMapper, GetBookQueryMapper>();
-
-
+            builder.Services.AddSingleton<IUpdateBookCommandMapper, UpdateBookCommandMapper>();
         }
     }
 }
