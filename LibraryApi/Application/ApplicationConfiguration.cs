@@ -2,6 +2,7 @@ using LibraryApi.Application.Authors.CreateAuthor;
 using LibraryApi.Application.Authors.GetAuthor;
 using LibraryApi.Application.Authors.ListAuthor;
 using LibraryApi.Application.Authors.UpdateAuthor;
+using LibraryApi.Application.Books.CreateBook;
 using LibraryApi.Application.Services;
 using LibraryApi.Application.Services.Authors;
 using MediatR;
@@ -36,12 +37,14 @@ namespace LibraryApi.Application
 
         private static void AddMappers(WebApplicationBuilder builder)
         {
+            // Author
             builder.Services.AddSingleton<ICreateAuthorCommandMapper, CreateAuthorCommandMapper>();
             builder.Services.AddSingleton<IGetAuthorQueryMapper, GetAuthorQueryMapper>();
             builder.Services.AddSingleton<IListAuthorQueryMapper, ListAuthorQueryMapper>();
             builder.Services.AddSingleton<IUpdateAuthorCommandMapper, UpdateAuthorCommandMapper>();
 
-
+            // Book
+            builder.Services.AddSingleton<ICreateBookCommandMapper, CreateBookCommandMapper>();
         }
     }
 }

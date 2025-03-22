@@ -11,6 +11,7 @@ namespace LibraryApi.Infrastructure.DataBaseContext
     public interface IApplicationDbContext
     {
         DbSet<Author> Authors { get; set; }
+        DbSet<Book> Books { get; set; }
 
         /// <summary>
         /// DbContext save changes operation async.
@@ -64,6 +65,7 @@ namespace LibraryApi.Infrastructure.DataBaseContext
     public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options), IApplicationDbContext
     {
         public DbSet<Author> Authors { get; set; }
+        public DbSet<Book> Books { get; set; }
 
         /// <inheritdoc />  
         public Task<int> SaveAsync(CancellationToken cancellationToken)

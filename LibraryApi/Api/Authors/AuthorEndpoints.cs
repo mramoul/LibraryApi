@@ -14,17 +14,17 @@ namespace LibraryApi.Api.Authors
 
         public static WebApplication Register(WebApplication application)
         {
-            const string EntityName = "Author";
+            const string EntityName = "author";
 
-            application.MapPost("/api/author", async (CreateAuthorCommand command, IMediator mediator) =>
+            application.MapPost($"/api/{EntityName}", async (CreateAuthorCommand command, IMediator mediator) =>
             {
                 var authorId = await mediator.Send(command);
-                return Results.Created($"api/author/{authorId}", authorId);
+                return Results.Created($"api/{EntityName}/{authorId}", authorId);
             })
             .WithTags(EntityName)
             .WithSummary($"Create an {EntityName}.");
 
-            application.MapGet("/api/author", async (Guid id, IMediator mediator) =>
+            application.MapGet($"/api/{EntityName}", async (Guid id, IMediator mediator) =>
             {
                 var author = await mediator.Send(new GetAuthorQuery(id));
                 return Results.Ok(author);
@@ -32,7 +32,7 @@ namespace LibraryApi.Api.Authors
             .WithTags(EntityName)
             .WithSummary($"Retrieves an {EntityName} by ID.");
 
-            application.MapGet("/api/author-list", async (IMediator mediator) =>
+            application.MapGet($"/api/{EntityName}-list", async (IMediator mediator) =>
             {
                 var listAuthors = await mediator.Send(new ListAuthorQuery());
                 return Results.Ok(listAuthors);
@@ -40,7 +40,7 @@ namespace LibraryApi.Api.Authors
             .WithTags(EntityName)
             .WithSummary($"Retrieves all {EntityName}s.");
 
-            application.MapPatch("/api/author", async (UpdateAuthorCommand command, IMediator mediator) =>
+            application.MapPatch($"/api/{EntityName}", async (UpdateAuthorCommand command, IMediator mediator) =>
             {
                 var result = await mediator.Send(command);
                 return Results.NoContent();
@@ -48,7 +48,7 @@ namespace LibraryApi.Api.Authors
             .WithTags(EntityName)
             .WithSummary($"Update an {EntityName} by ID.");
 
-            application.MapDelete("/api/author", async (Guid id, IMediator mediator) =>
+            application.MapDelete($"/api/{EntityName}", async (Guid id, IMediator mediator) =>
             {
                 var result = await mediator.Send(new DeleteAuthorCommand(id));
                 return Results.Ok(result.Message);

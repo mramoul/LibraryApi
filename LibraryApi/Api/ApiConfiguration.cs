@@ -1,4 +1,5 @@
 using LibraryApi.Api.Authors;
+using LibraryApi.Api.Books;
 
 namespace LibraryApi.Api
 {
@@ -11,6 +12,7 @@ namespace LibraryApi.Api
         public static IApplicationBuilder UseApiEndpoints(this WebApplication application)
         {
             AuthorEndpoints.Register(application);
+            BookEndpoints.Register(application);
             
             return application;
         }
