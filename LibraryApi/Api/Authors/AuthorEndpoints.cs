@@ -21,7 +21,7 @@ namespace LibraryApi.Api.Authors
                 var authorId = await mediator.Send(command);
                 return Results.Created($"api/{EntityName}/{authorId}", authorId);
             })
-            .WithTags(EntityName)
+            .WithTags(EntityName.ToUpper())
             .WithSummary($"Create an {EntityName}.");
 
             application.MapGet($"/api/{EntityName}", async (Guid id, IMediator mediator) =>
@@ -29,7 +29,7 @@ namespace LibraryApi.Api.Authors
                 var author = await mediator.Send(new GetAuthorQuery(id));
                 return Results.Ok(author);
             })
-            .WithTags(EntityName)
+            .WithTags(EntityName.ToUpper())
             .WithSummary($"Retrieves an {EntityName} by ID.");
 
             application.MapGet($"/api/{EntityName}-list", async (IMediator mediator) =>
@@ -37,7 +37,7 @@ namespace LibraryApi.Api.Authors
                 var listAuthors = await mediator.Send(new ListAuthorQuery());
                 return Results.Ok(listAuthors);
             })
-            .WithTags(EntityName)
+            .WithTags(EntityName.ToUpper())
             .WithSummary($"Retrieves all {EntityName}s.");
 
             application.MapPatch($"/api/{EntityName}", async (UpdateAuthorCommand command, IMediator mediator) =>
@@ -45,7 +45,7 @@ namespace LibraryApi.Api.Authors
                 var result = await mediator.Send(command);
                 return Results.NoContent();
             })
-            .WithTags(EntityName)
+            .WithTags(EntityName.ToUpper())
             .WithSummary($"Update an {EntityName} by ID.");
 
             application.MapDelete($"/api/{EntityName}", async (Guid id, IMediator mediator) =>
@@ -53,7 +53,7 @@ namespace LibraryApi.Api.Authors
                 var result = await mediator.Send(new DeleteAuthorCommand(id));
                 return Results.Ok(result.Message);
             })
-            .WithTags(EntityName)
+            .WithTags(EntityName.ToUpper())
             .WithSummary($"Delete an {EntityName} by ID.");
 
             return application;

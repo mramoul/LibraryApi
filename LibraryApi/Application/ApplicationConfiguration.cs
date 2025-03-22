@@ -3,6 +3,8 @@ using LibraryApi.Application.Authors.GetAuthor;
 using LibraryApi.Application.Authors.ListAuthor;
 using LibraryApi.Application.Authors.UpdateAuthor;
 using LibraryApi.Application.Books.CreateBook;
+using LibraryApi.Application.Books.GetBook;
+using LibraryApi.Application.Books.Mappers;
 using LibraryApi.Application.Services;
 using LibraryApi.Application.Services.Authors;
 using MediatR;
@@ -32,7 +34,13 @@ namespace LibraryApi.Application
         private static void AddServices(WebApplicationBuilder builder)
         {
             builder.Services.AddScoped(typeof(IBaseServices<>), typeof(BaseServices<>));
+
+            // Author
             builder.Services.AddScoped<IAuthorServices, AuthorServices>();
+
+            // Book
+            builder.Services.AddScoped<IBookServices, BookServices>();
+
         }
 
         private static void AddMappers(WebApplicationBuilder builder)
@@ -45,6 +53,10 @@ namespace LibraryApi.Application
 
             // Book
             builder.Services.AddSingleton<ICreateBookCommandMapper, CreateBookCommandMapper>();
+            builder.Services.AddSingleton<IAuthorMapper, AuthorMapper>();
+            builder.Services.AddSingleton<IGetBookQueryMapper, GetBookQueryMapper>();
+
+
         }
     }
 }

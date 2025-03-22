@@ -1,4 +1,5 @@
 using LibraryApi.Application.Books.CreateBook;
+using LibraryApi.Application.Books.GetBook;
 using MediatR;
 
 namespace LibraryApi.Api.Books
@@ -17,8 +18,16 @@ namespace LibraryApi.Api.Books
                 var bookId = await mediator.Send(command);
                 return Results.Created($"api/{EntityName}/{bookId}", bookId);
             })
-            .WithTags(EntityName)
+            .WithTags(EntityName.ToUpper())
             .WithSummary($"Create a {EntityName}.");
+
+            application.MapGet($"/api/{EntityName}", async (Guid id, IMediator mediator) =>
+            {
+                var author = await mediator.Send(new GetBookQuery(id));
+                return Results.Ok(author);
+            })
+            .WithTags(EntityName.ToUpper())
+            .WithSummary($"Retrieves a {EntityName} by ID.");
 
             return application;
         }
