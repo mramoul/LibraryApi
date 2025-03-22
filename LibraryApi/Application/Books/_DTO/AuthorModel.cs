@@ -1,4 +1,4 @@
-namespace LibraryApi.Application.Books.DTO;
+namespace LibraryApi.Application.Books._DTO;
 
 public class AuthorModel
 {

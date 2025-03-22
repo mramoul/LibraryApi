@@ -1,4 +1,4 @@
-using LibraryApi.Application.Books.DTO;
+using LibraryApi.Application.Books._DTO;
 
 namespace LibraryApi.Application.Books.GetBook
 {

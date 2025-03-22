@@ -1,4 +1,4 @@
-using LibraryApi.Application.Books.Mappers;
+using LibraryApi.Application.Books._Mappers;
 using LibraryApi.Domain.Entities;
 
 namespace LibraryApi.Application.Books.GetBook
