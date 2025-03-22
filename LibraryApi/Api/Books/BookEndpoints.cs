@@ -1,4 +1,5 @@
 using LibraryApi.Application.Books.CreateBook;
+using LibraryApi.Application.Books.DeleteBook;
 using LibraryApi.Application.Books.GetBook;
 using MediatR;
 
@@ -28,6 +29,14 @@ namespace LibraryApi.Api.Books
             })
             .WithTags(EntityName.ToUpper())
             .WithSummary($"Retrieves a {EntityName} by ID.");
+
+            application.MapDelete($"/api/{EntityName}", async (Guid id, IMediator mediator) =>
+            {
+                var result = await mediator.Send(new DeleteBookCommand(id));
+                return Results.Ok(result.Message);
+            })
+            .WithTags(EntityName.ToUpper())
+            .WithSummary($"Delete a {EntityName} by ID.");
 
             return application;
         }

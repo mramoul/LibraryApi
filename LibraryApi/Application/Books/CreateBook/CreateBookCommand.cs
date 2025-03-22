@@ -4,7 +4,7 @@ namespace LibraryApi.Application.Books.CreateBook
 {
     /// <summary>
     /// Represents the data command required to create a new book,
-    //  used to trigger the author creation process through Mediator.
+    //  used to trigger the creation process through Mediator.
     /// </summary>
     public class CreateBookCommand : IRequest<CreateBookCommandResult>
     {
