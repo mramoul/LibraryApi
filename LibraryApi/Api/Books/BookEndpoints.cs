@@ -1,5 +1,7 @@
 using LibraryApi.Application.Books.CreateBook;
+using LibraryApi.Application.Books.DeleteBook;
 using LibraryApi.Application.Books.GetBook;
+using LibraryApi.Application.Books.UpdateBook;
 using MediatR;
 
 namespace LibraryApi.Api.Books
@@ -28,6 +30,22 @@ namespace LibraryApi.Api.Books
             })
             .WithTags(EntityName.ToUpper())
             .WithSummary($"Retrieves a {EntityName} by ID.");
+
+            application.MapPatch($"/api/{EntityName}", async (UpdateBookCommand command, IMediator mediator) =>
+            {
+                var result = await mediator.Send(command);
+                return Results.NoContent();
+            })
+            .WithTags(EntityName.ToUpper())
+            .WithSummary($"Update a {EntityName} by ID.");
+
+            application.MapDelete($"/api/{EntityName}", async (Guid id, IMediator mediator) =>
+            {
+                var result = await mediator.Send(new DeleteBookCommand(id));
+                return Results.Ok(result.Message);
+            })
+            .WithTags(EntityName.ToUpper())
+            .WithSummary($"Delete a {EntityName} by ID.");
 
             return application;
         }

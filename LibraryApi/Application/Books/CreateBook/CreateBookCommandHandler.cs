@@ -10,12 +10,13 @@ namespace LibraryApi.Application.Books.CreateBook
     /// Handles the <see cref="CreateBookCommand"/>, returns the result with the created book's ID.
     /// </summary>
     /// <param name="context">Db Context</param>
+    /// <param name="bookServices">Service to retrieve data from the Db Context</param>
     /// <param name="mapper">Maps the DB source data to the result representation</param>
-    public class CreateBookCommandHandler(IApplicationDbContext context, IAuthorServices authorServices, ICreateBookCommandMapper mapper) : IRequestHandler<CreateBookCommand, CreateBookCommandResult>
+    public class CreateBookCommandHandler(IApplicationDbContext context, IBookServices bookServices, ICreateBookCommandMapper mapper) : IRequestHandler<CreateBookCommand, CreateBookCommandResult>
     {
         public async Task<CreateBookCommandResult> Handle(CreateBookCommand command, CancellationToken cancellationToken)
         {
-            var author = authorServices.GetByIdAsync(command.AuthorId, cancellationToken);
+            var author = bookServices.GetAuthorByIdAsync(command.AuthorId, cancellationToken);
 
             if(author.Result is null)
                 throw new NotFoundError($"Author with ID {command.AuthorId} was not found.");

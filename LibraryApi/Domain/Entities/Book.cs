@@ -10,4 +10,12 @@ public class Book: Entity
 
     [ForeignKey("AuthorId")]
     public required Author Author { get; set; }
+
+    public void Update(Book newBook)
+    {
+        Title = newBook.Title;
+        ISBN = newBook.ISBN;
+        PublishedDate = newBook.PublishedDate;
+        Author = newBook.Author;
+    }
 }

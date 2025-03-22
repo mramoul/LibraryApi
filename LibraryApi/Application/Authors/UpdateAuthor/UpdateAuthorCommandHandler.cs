@@ -9,6 +9,7 @@ namespace LibraryApi.Application.Authors.UpdateAuthor
     /// Handles the <see cref="UpdateAuthorCommand"/>, returns the result with the updated author's ID.
     /// </summary>
     /// <param name="context">Db Context</param>
+    /// <param name="authorServices">Service to retrieve data from the Db Context</param>
     /// <param name="mapper">Maps the DB source data to the result representation</param>
     public class CreateAuthorCommandHandler(IApplicationDbContext context, IAuthorServices authorServices, IUpdateAuthorCommandMapper mapper) : IRequestHandler<UpdateAuthorCommand, UpdateAuthorCommandResult>
     {
