@@ -4,7 +4,7 @@ namespace LibraryApi.Application.Authors.CreateAuthor
 {
     /// <summary>
     /// Represents the data command required to create a new author,
-    //  used to trigger the author creation process through Mediator.
+    //  used to trigger the creation process through Mediator.
     /// </summary>
     public class CreateAuthorCommand : IRequest<CreateAuthorCommandResult>
     {
