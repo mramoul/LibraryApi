@@ -24,6 +24,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI(op =>{
+        // Remove schemas gen.
     op.DefaultModelsExpandDepth(-1);
     op.EnableTryItOutByDefault();
     });

@@ -4,11 +4,12 @@ using LibraryApi.Application.Authors.ListAuthor;
 using LibraryApi.Application.Authors.UpdateAuthor;
 using LibraryApi.Application.Books.CreateBook;
 using LibraryApi.Application.Books.GetBook;
-using LibraryApi.Application.Books.Mappers;
 using LibraryApi.Application.Books.UpdateBook;
 using LibraryApi.Application.Services;
 using LibraryApi.Application.Services.Authors;
 using MediatR;
+using LibraryApi.Application.Books._Mappers;
+using LibraryApi.Application.Books.ListBook;
 
 namespace LibraryApi.Application
 {
@@ -57,6 +58,8 @@ namespace LibraryApi.Application
             builder.Services.AddSingleton<IAuthorMapper, AuthorMapper>();
             builder.Services.AddSingleton<IGetBookQueryMapper, GetBookQueryMapper>();
             builder.Services.AddSingleton<IUpdateBookCommandMapper, UpdateBookCommandMapper>();
+            builder.Services.AddSingleton<IListBookQueryMapper, ListBookQueryMapper>();
+            builder.Services.AddSingleton<Books.ListBook._Mappers.IAuthorMapper, Books.ListBook._Mappers.AuthorMapper>();
         }
     }
 }
