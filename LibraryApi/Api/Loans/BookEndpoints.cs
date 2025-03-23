@@ -1,4 +1,5 @@
 using LibraryApi.Application.Loans.CreateLoan;
+using LibraryApi.Application.Loans.GetLoan;
 using MediatR;
 
 namespace LibraryApi.Api.Loans
@@ -19,6 +20,14 @@ namespace LibraryApi.Api.Loans
             })
             .WithTags(EntityName.ToUpper())
             .WithSummary($"Create a {EntityName}.");
+
+            application.MapGet($"/api/{EntityName}", async (Guid id, IMediator mediator) =>
+            {
+                var loan = await mediator.Send(new GetLoanQuery(id));
+                return Results.Ok(loan);
+            })
+            .WithTags(EntityName.ToUpper())
+            .WithSummary($"Retrieves a {EntityName} by ID.");
 
             return application;
         }
