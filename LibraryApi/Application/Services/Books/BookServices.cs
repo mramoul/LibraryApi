@@ -1,7 +1,7 @@
 using LibraryApi.Domain.Entities;
 using LibraryApi.Infrastructure.DataBaseContext;
 
-namespace LibraryApi.Application.Services.Authors
+namespace LibraryApi.Application.Services.Books
 {
     /// <summary>
     /// Defines the service for handling Book entities.

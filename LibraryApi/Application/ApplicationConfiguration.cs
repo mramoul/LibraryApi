@@ -10,6 +10,9 @@ using LibraryApi.Application.Services.Authors;
 using MediatR;
 using LibraryApi.Application.Books._Mappers;
 using LibraryApi.Application.Books.ListBook;
+using LibraryApi.Application.Services.Books;
+using LibraryApi.Application.Services.Loans;
+using LibraryApi.Application.Loans.CreateLoan;
 
 namespace LibraryApi.Application
 {
@@ -43,6 +46,8 @@ namespace LibraryApi.Application
             // Book
             builder.Services.AddScoped<IBookServices, BookServices>();
 
+            // Loan
+            builder.Services.AddScoped<ILoanServices, LoanServices>();
         }
 
         private static void AddMappers(WebApplicationBuilder builder)
@@ -60,6 +65,9 @@ namespace LibraryApi.Application
             builder.Services.AddSingleton<IUpdateBookCommandMapper, UpdateBookCommandMapper>();
             builder.Services.AddSingleton<IListBookQueryMapper, ListBookQueryMapper>();
             builder.Services.AddSingleton<Books.ListBook._Mappers.IAuthorMapper, Books.ListBook._Mappers.AuthorMapper>();
+
+            // Loan
+            builder.Services.AddSingleton<ICreateLoanCommandMapper, CreateLoanCommandMapper>();
         }
     }
 }

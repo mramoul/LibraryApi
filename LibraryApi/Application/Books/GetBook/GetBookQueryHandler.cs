@@ -1,6 +1,7 @@
 using LibraryApi.Application.Books.GetBook;
 using LibraryApi.Application.Errors;
-using LibraryApi.Application.Services.Authors;
+using LibraryApi.Application.Services.Books;
+using LibraryApi.Domain.Entities;
 using MediatR;
 
 namespace LibraryApi.Application.Authors.GetAuthor
@@ -17,7 +18,7 @@ namespace LibraryApi.Application.Authors.GetAuthor
             var book = await bookServices.GetByIdAsync(query.Id, cancellationToken);
 
             if(book is null)
-                throw new NotFoundError($"Author with ID {query.Id} was not found.");
+                throw new NotFoundError($"{nameof(Book)} with ID {query.Id} was not found.");
                 
             var result = mapper.Map(book);
 

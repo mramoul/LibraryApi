@@ -1,5 +1,6 @@
 using LibraryApi.Api.Authors;
 using LibraryApi.Api.Books;
+using LibraryApi.Api.Loans;
 
 namespace LibraryApi.Api
 {
@@ -13,7 +14,8 @@ namespace LibraryApi.Api
         {
             AuthorEndpoints.Register(application);
             BookEndpoints.Register(application);
-            
+            LoanEndpoints.Register(application);
+
             return application;
         }
 

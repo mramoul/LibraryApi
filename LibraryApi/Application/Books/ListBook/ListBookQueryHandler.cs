@@ -1,5 +1,5 @@
 using LibraryApi.Application.Errors;
-using LibraryApi.Application.Services.Authors;
+using LibraryApi.Application.Services.Books;
 using LibraryApi.Domain.Entities;
 using MediatR;
 
@@ -10,7 +10,7 @@ namespace LibraryApi.Application.Books.ListBook
     /// </summary>
     /// <param name="bookServices">Service to retrieve data from the Db Context</param>
     /// <param name="mapper">Maps the DB source data to the result representation</param>
-    public class ListAuthorQueryHandler(IBookServices bookServices, IListBookQueryMapper mapper) : IRequestHandler<ListBookQuery, ListBookQueryResult>
+    public class ListBookQueryHandler(IBookServices bookServices, IListBookQueryMapper mapper) : IRequestHandler<ListBookQuery, ListBookQueryResult>
     {
         public async Task<ListBookQueryResult> Handle(ListBookQuery query, CancellationToken cancellationToken)
         {
