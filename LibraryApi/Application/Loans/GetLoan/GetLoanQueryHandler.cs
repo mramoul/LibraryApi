@@ -17,7 +17,7 @@ namespace LibraryApi.Application.Loans.GetLoan
             var book = await loanServices.GetByIdAsync(query.Id, cancellationToken);
 
             if(book is null)
-                throw new NotFoundError($"{nameof(Book)} with ID {query.Id} was not found.");
+                throw new NotFoundError($"{nameof(Loan)} with ID {query.Id} was not found.");
                 
             var result = mapper.Map(book);
 
