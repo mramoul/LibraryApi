@@ -68,6 +68,9 @@ namespace LibraryApi.Application
 
             // Loan
             builder.Services.AddSingleton<ICreateLoanCommandMapper, CreateLoanCommandMapper>();
+            builder.Services.AddSingleton<Loans.GetLoan.IGetLoanQueryMapper, Loans.GetLoan.GetLoanQueryMapper>();
+            builder.Services.AddSingleton<Loans.GetLoan._Mappers.IAuthorMapper, Loans.GetLoan._Mappers.AuthorMapper>();
+            builder.Services.AddSingleton<Loans.GetLoan._Mappers.IBookMapper, Loans.GetLoan._Mappers.BookMapper>();
         }
     }
 }

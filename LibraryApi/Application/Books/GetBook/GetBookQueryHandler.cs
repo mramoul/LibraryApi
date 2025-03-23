@@ -1,10 +1,9 @@
-using LibraryApi.Application.Books.GetBook;
 using LibraryApi.Application.Errors;
 using LibraryApi.Application.Services.Books;
 using LibraryApi.Domain.Entities;
 using MediatR;
 
-namespace LibraryApi.Application.Authors.GetAuthor
+namespace LibraryApi.Application.Books.GetBook
 {
     /// <summary>
     /// Handles the <see cref="GetBookQuery"/>, returns the result with the book's data.
