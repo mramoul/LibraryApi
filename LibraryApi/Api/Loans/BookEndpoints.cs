@@ -1,5 +1,6 @@
 using LibraryApi.Application.Loans.CreateLoan;
 using LibraryApi.Application.Loans.GetLoan;
+using LibraryApi.Application.Loans.ListLoan;
 using MediatR;
 
 namespace LibraryApi.Api.Loans
@@ -28,6 +29,14 @@ namespace LibraryApi.Api.Loans
             })
             .WithTags(EntityName.ToUpper())
             .WithSummary($"Retrieves a {EntityName} by ID.");
+
+            application.MapGet($"/api/{EntityName}-list", async (IMediator mediator) =>
+            {
+                var listLoans = await mediator.Send(new ListLoanQuery());
+                return Results.Ok(listLoans);
+            })
+            .WithTags(EntityName.ToUpper())
+            .WithSummary($"Retrieves all {EntityName}s.");
 
             return application;
         }

@@ -13,6 +13,8 @@ using LibraryApi.Application.Books.ListBook;
 using LibraryApi.Application.Services.Books;
 using LibraryApi.Application.Services.Loans;
 using LibraryApi.Application.Loans.CreateLoan;
+using LibraryApi.Application.Loans.GetLoan;
+using LibraryApi.Application.Loans.ListLoan;
 
 namespace LibraryApi.Application
 {
@@ -68,9 +70,11 @@ namespace LibraryApi.Application
 
             // Loan
             builder.Services.AddSingleton<ICreateLoanCommandMapper, CreateLoanCommandMapper>();
-            builder.Services.AddSingleton<Loans.GetLoan.IGetLoanQueryMapper, Loans.GetLoan.GetLoanQueryMapper>();
+            builder.Services.AddSingleton<IGetLoanQueryMapper, GetLoanQueryMapper>();
             builder.Services.AddSingleton<Loans.GetLoan._Mappers.IAuthorMapper, Loans.GetLoan._Mappers.AuthorMapper>();
             builder.Services.AddSingleton<Loans.GetLoan._Mappers.IBookMapper, Loans.GetLoan._Mappers.BookMapper>();
+            builder.Services.AddSingleton<Loans.ListLoan._Mappers.IBookMapper, Loans.ListLoan._Mappers.BookMapper>();
+            builder.Services.AddSingleton<IListLoanQueryMapper, ListLoanQueryMapper>();
         }
     }
 }
