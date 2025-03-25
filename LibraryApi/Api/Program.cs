@@ -1,14 +1,16 @@
 using LibraryApi.Api;
 using LibraryApi.Infrastructure;
 using LibraryApi.Application;
+using LibraryApi.Infrastructure.DataBaseContext;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add application services.
-builder.AddApplicationServices();
-
 // Add infrastructure services.
 builder.AddInfrastructureServices();
+
+// Add application services.
+builder.AddApplicationServices();
 
 // Build the app
 var app = builder.Build();
@@ -19,15 +21,20 @@ app.UseMiddlewares();
 // Add API endpoints
 app.UseApiEndpoints();
 
-// Activation de Swagger
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(op =>{
-        // Remove schemas gen.
-    op.DefaultModelsExpandDepth(-1);
-    op.EnableTryItOutByDefault();
-    });
+// Swagger Activation
+app.UseSwagger();
+app.UseSwaggerUI(op =>{
+    // Remove schemas gen.
+op.DefaultModelsExpandDepth(-1);
+op.EnableTryItOutByDefault();
+});
+
+// Force Migration for production
+if (app.Environment.IsProduction())
+{    
+    var scope = app.Services.CreateScope();
+    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    dbContext.Database.Migrate();
 }
 
 app.UseHttpsRedirection();

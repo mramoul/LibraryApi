@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace LibraryApi.Infrastructure.Migrations
+namespace LibraryApi.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialDBCreate : Migration
+    public partial class InitDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,7 +32,7 @@ namespace LibraryApi.Infrastructure.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Title = table.Column<string>(type: "text", nullable: false),
                     ISBN = table.Column<string>(type: "text", nullable: false),
-                    PublishedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    PublishedDate = table.Column<DateOnly>(type: "date", nullable: false),
                     AuthorId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
@@ -43,7 +43,7 @@ namespace LibraryApi.Infrastructure.Migrations
                         column: x => x.AuthorId,
                         principalTable: "Authors",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -63,7 +63,7 @@ namespace LibraryApi.Infrastructure.Migrations
                         column: x => x.BookId,
                         principalTable: "Books",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

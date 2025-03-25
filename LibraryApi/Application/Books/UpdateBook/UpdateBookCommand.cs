@@ -11,7 +11,7 @@ namespace LibraryApi.Application.Books.UpdateBook
         public required Guid Id { get; init; }
         public string Title { get; init; } = string.Empty;
         public string ISBN { get; init; } = string.Empty;
-        public DateTime PublishedDate { get; init; }
+        public DateOnly PublishedDate { get; init; }
         public Guid? AuthorId {get; init;}
     }
 }

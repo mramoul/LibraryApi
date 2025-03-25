@@ -8,7 +8,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace LibraryApi.Infrastructure.Migrations
+namespace LibraryApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -57,8 +57,8 @@ namespace LibraryApi.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("PublishedDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("PublishedDate")
+                        .HasColumnType("date");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -96,9 +96,9 @@ namespace LibraryApi.Infrastructure.Migrations
             modelBuilder.Entity("LibraryApi.Domain.Entities.Book", b =>
                 {
                     b.HasOne("LibraryApi.Domain.Entities.Author", "Author")
-                        .WithMany()
+                        .WithMany("Books")
                         .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Author");
@@ -107,12 +107,22 @@ namespace LibraryApi.Infrastructure.Migrations
             modelBuilder.Entity("LibraryApi.Domain.Entities.Loan", b =>
                 {
                     b.HasOne("LibraryApi.Domain.Entities.Book", "Book")
-                        .WithMany()
+                        .WithMany("Loans")
                         .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Book");
+                });
+
+            modelBuilder.Entity("LibraryApi.Domain.Entities.Author", b =>
+                {
+                    b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("LibraryApi.Domain.Entities.Book", b =>
+                {
+                    b.Navigation("Loans");
                 });
 #pragma warning restore 612, 618
         }

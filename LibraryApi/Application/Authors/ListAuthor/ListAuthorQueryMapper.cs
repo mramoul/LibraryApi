@@ -1,5 +1,5 @@
 using System.Collections.Immutable;
-using LibraryApi.Application.Authors.ListAuthor.DTO;
+using LibraryApi.Application.Authors.ListAuthor._DTO;
 using LibraryApi.Domain.Entities;
 
 namespace LibraryApi.Application.Authors.ListAuthor

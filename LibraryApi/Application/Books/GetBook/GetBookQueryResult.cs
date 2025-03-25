@@ -1,4 +1,5 @@
-using LibraryApi.Application.Books._DTO;
+using System.Collections.Immutable;
+using LibraryApi.Application.Books.GetBook._DTO;
 
 namespace LibraryApi.Application.Books.GetBook
 {
@@ -10,7 +11,8 @@ namespace LibraryApi.Application.Books.GetBook
     {
         public string Title { get; init; } = string.Empty;
         public string ISBN { get; init; } = string.Empty;
-        public DateTime PublishedDate { get; init; }
+        public DateOnly PublishedDate { get; init; }
         public required AuthorModel Author { get; init; }
+        public ImmutableList<LoanModel>? Loans {get; init;}
     }
 }
