@@ -57,8 +57,8 @@ namespace LibraryApi.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("PublishedDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("PublishedDate")
+                        .HasColumnType("date");
 
                     b.Property<string>("Title")
                         .IsRequired()

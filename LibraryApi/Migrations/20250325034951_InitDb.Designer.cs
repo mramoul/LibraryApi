@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LibraryApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250324230911_InitialDBCreate")]
-    partial class InitialDBCreate
+    [Migration("20250325034951_InitDb")]
+    partial class InitDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,8 +60,8 @@ namespace LibraryApi.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("PublishedDate")
-                        .HasColumnType("timestamp with time zone");
+                    b.Property<DateOnly>("PublishedDate")
+                        .HasColumnType("date");
 
                     b.Property<string>("Title")
                         .IsRequired()
