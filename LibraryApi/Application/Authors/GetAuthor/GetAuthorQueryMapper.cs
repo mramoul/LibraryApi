@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using LibraryApi.Domain.Entities;
 
 namespace LibraryApi.Application.Authors.GetAuthor
@@ -19,7 +20,17 @@ namespace LibraryApi.Application.Authors.GetAuthor
             {
                 FirstName = source.FirstName,
                 LastName = source.LastName,
-                BirthDate = source.BirthDate
+                BirthDate = source.BirthDate,
+                Books = source.Books?.Select(MapItem).ToImmutableList()
+            };
+        }
+
+        private static BookModel MapItem(Book source)
+        {
+            return new BookModel()
+            {
+                Id = source.Id,
+                Title = source.Title
             };
         }
     }

@@ -96,9 +96,9 @@ namespace LibraryApi.Migrations
             modelBuilder.Entity("LibraryApi.Domain.Entities.Book", b =>
                 {
                     b.HasOne("LibraryApi.Domain.Entities.Author", "Author")
-                        .WithMany()
+                        .WithMany("Books")
                         .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Author");
@@ -107,12 +107,22 @@ namespace LibraryApi.Migrations
             modelBuilder.Entity("LibraryApi.Domain.Entities.Loan", b =>
                 {
                     b.HasOne("LibraryApi.Domain.Entities.Book", "Book")
-                        .WithMany()
+                        .WithMany("Loans")
                         .HasForeignKey("BookId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Book");
+                });
+
+            modelBuilder.Entity("LibraryApi.Domain.Entities.Author", b =>
+                {
+                    b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("LibraryApi.Domain.Entities.Book", b =>
+                {
+                    b.Navigation("Loans");
                 });
 #pragma warning restore 612, 618
         }

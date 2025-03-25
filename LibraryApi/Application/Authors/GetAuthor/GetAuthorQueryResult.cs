@@ -1,3 +1,6 @@
+using System.Collections.Immutable;
+using LibraryApi.Domain.Entities;
+
 namespace LibraryApi.Application.Authors.GetAuthor
 {
     /// <summary>
@@ -9,5 +12,6 @@ namespace LibraryApi.Application.Authors.GetAuthor
         public string FirstName { get; init; } = string.Empty;
         public string LastName { get; init; } = string.Empty;
         public DateOnly BirthDate { get; init; }
+        public ImmutableList<BookModel>? Books {get; init;}
     }
 }

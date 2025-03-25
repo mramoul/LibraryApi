@@ -11,6 +11,8 @@ public class Book: Entity
     [ForeignKey("AuthorId")]
     public required Author Author { get; set; }
 
+    public List<Loan>? Loans  {get; set;}
+
     public void Update(Book newBook)
     {
         Title = newBook.Title;

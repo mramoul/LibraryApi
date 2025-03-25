@@ -1,3 +1,5 @@
+using System.Collections.Immutable;
+using LibraryApi.Application.Books.GetBook._DTO;
 using LibraryApi.Application.Books.GetBook._Mappers;
 using LibraryApi.Domain.Entities;
 
@@ -21,7 +23,16 @@ namespace LibraryApi.Application.Books.GetBook
                 Title = source.Title,
                 ISBN = source.ISBN,
                 PublishedDate = source.PublishedDate,
-                Author = authorMapper.Map(source.Author)
+                Author = authorMapper.Map(source.Author),
+                Loans = source.Loans?.Select(MapItem).ToImmutableList()
+            };
+        }
+
+        private static LoanModel MapItem(Loan source)
+        {
+            return new LoanModel()
+            {
+                Id = source.Id,
             };
         }
     }
