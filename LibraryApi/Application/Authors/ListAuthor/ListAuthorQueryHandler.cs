@@ -1,5 +1,6 @@
 using LibraryApi.Application.Errors;
 using LibraryApi.Application.Services.Authors;
+using LibraryApi.Domain.Entities;
 using MediatR;
 
 namespace LibraryApi.Application.Authors.ListAuthor
@@ -16,7 +17,7 @@ namespace LibraryApi.Application.Authors.ListAuthor
             var authors = await authorServices.GetListdAsync(cancellationToken);
 
             if(authors is null)
-                throw new NotFoundError($"No Authors were found.");
+                throw new NotFoundError($"No ${nameof(Author)}s were found.");
                 
             var result = mapper.Map(authors);
 

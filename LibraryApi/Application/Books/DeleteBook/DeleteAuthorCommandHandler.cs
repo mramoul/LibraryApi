@@ -1,5 +1,4 @@
 using LibraryApi.Application.Errors;
-using LibraryApi.Application.Services.Authors;
 using LibraryApi.Application.Services.Books;
 using LibraryApi.Domain.Entities;
 using LibraryApi.Infrastructure.DataBaseContext;

@@ -1,4 +1,4 @@
-using LibraryApi.Application.Loals._DTO;
+using LibraryApi.Application.Loans.GetLoan._DTO;
 using LibraryApi.Domain.Entities;
 
 namespace LibraryApi.Application.Loans.GetLoan._Mappers

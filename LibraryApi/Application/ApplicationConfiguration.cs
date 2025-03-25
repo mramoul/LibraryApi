@@ -8,7 +8,7 @@ using LibraryApi.Application.Books.UpdateBook;
 using LibraryApi.Application.Services;
 using LibraryApi.Application.Services.Authors;
 using MediatR;
-using LibraryApi.Application.Books._Mappers;
+using LibraryApi.Application.Books.GetBook._Mappers;
 using LibraryApi.Application.Books.ListBook;
 using LibraryApi.Application.Services.Books;
 using LibraryApi.Application.Services.Loans;

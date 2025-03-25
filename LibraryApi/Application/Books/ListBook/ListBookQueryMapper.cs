@@ -6,7 +6,7 @@ using LibraryApi.Domain.Entities;
 namespace LibraryApi.Application.Books.ListBook
 {
     /// <summary>
-    /// Defines a mapper to convert a list of <see cref="Book"/> into a <see cref="ListBookQueryResult"/>.
+    /// Defines a mapper to convert a list of <see cref="Book"/>s into a <see cref="ListBookQueryResult"/>.
     /// </summary>
     public interface IListBookQueryMapper
     {

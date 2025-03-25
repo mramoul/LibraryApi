@@ -1,10 +1,9 @@
 using LibraryApi.Application.Errors;
-using LibraryApi.Application.Loans.ListLoan;
 using LibraryApi.Application.Services.Loans;
 using LibraryApi.Domain.Entities;
 using MediatR;
 
-namespace LibraryApi.Application.Books.ListBook
+namespace LibraryApi.Application.Loans.ListLoan
 {
     /// <summary>
     /// Handles the <see cref="ListLoanQuery"/>, returns the result with the list of loans data.

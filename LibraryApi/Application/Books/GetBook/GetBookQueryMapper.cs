@@ -1,10 +1,10 @@
-using LibraryApi.Application.Books._Mappers;
+using LibraryApi.Application.Books.GetBook._Mappers;
 using LibraryApi.Domain.Entities;
 
 namespace LibraryApi.Application.Books.GetBook
 {
     /// <summary>
-    /// Defines a mapper to convert an <see cref="Book"/> into a <see cref="GetBookQueryResult"/> entity.
+    /// Defines a mapper to convert a <see cref="Book"/> into a <see cref="GetBookQueryResult"/>.
     /// </summary>
     public interface IGetBookQueryMapper
     {

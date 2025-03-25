@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add application services.
-builder.AddApplicationServices();
-
 // Add infrastructure services.
 builder.AddInfrastructureServices();
+
+// Add application services.
+builder.AddApplicationServices();
 
 // Build the app
 var app = builder.Build();
@@ -29,7 +29,7 @@ op.DefaultModelsExpandDepth(-1);
 op.EnableTryItOutByDefault();
 });
 
-// Migration for production Activation
+// Force Migration for production
 if (app.Environment.IsProduction())
 {    
     var scope = app.Services.CreateScope();

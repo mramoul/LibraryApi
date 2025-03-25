@@ -1,8 +1,9 @@
 using LibraryApi.Domain.Entities;
+
 namespace LibraryApi.Application.Authors.GetAuthor
 {
     /// <summary>
-    /// Defines a mapper to convert an <see cref="Author"/> into a <see cref="GetAuthorQueryResult"/> entity.
+    /// Defines a mapper to convert an <see cref="Author"/> into a <see cref="GetAuthorQueryResult"/>.
     /// </summary>
     public interface IGetAuthorQueryMapper
     {

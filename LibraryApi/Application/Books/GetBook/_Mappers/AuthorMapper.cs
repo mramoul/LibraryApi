@@ -1,7 +1,7 @@
-using LibraryApi.Application.Books._DTO;
+using LibraryApi.Application.Books.GetBook._DTO;
 using LibraryApi.Domain.Entities;
 
-namespace LibraryApi.Application.Books._Mappers
+namespace LibraryApi.Application.Books.GetBook._Mappers
 {
     /// <summary>
     /// Defines a mapper to convert an <see cref="Author"/> into an <see cref="AuthorModel"/>.

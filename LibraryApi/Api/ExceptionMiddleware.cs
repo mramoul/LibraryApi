@@ -20,7 +20,7 @@ namespace LibraryApi.Api
                 context.Response.StatusCode = ex switch
                 {
                     NotFoundError => StatusCodes.Status404NotFound,
-                    _ => StatusCodes.Status500InternalServerError
+                    _ => StatusCodes.Status400BadRequest
                 };
 
                 await context.Response.WriteAsJsonAsync(new { error = ex.Message });
