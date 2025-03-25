@@ -18,6 +18,7 @@ namespace LibraryApi.Application.Books.GetBook._Mappers
         {
             return new AuthorModel()
             {
+                Id = source.Id,
                 FirstName = source.FirstName,
                 LastName = source.LastName,
                 BirthDate = source.BirthDate
