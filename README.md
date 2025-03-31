@@ -56,6 +56,15 @@ ALTER ROLE your_user CREATEDB;
 }
 ```
 
+4. **Configure Docker Compose**
+- Open `docker-compose.yml` and update the database connection strings:
+```
+environment:
+      POSTGRES_USER: your_user
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: library  # The name of your database
+```
+
 4. **Build and Run the Application**
 ```bash
 docker-compose up --build -d
