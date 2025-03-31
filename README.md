@@ -19,20 +19,24 @@ The project adopts Clean Architecture, separating the application into distinct 
   - Entity Framework Core (for data access)
 
 ## API Endpoints
-- `GET /authors` - Retrieves all authors with books and loans.
-- `POST /authors` - Creates a new author.
-- `DELETE /authors/{id}` - Deletes an author along with related books and loans.
-- `GET /books` - Retrieves all books with loans.
-- `POST /books` - Creates a new book.
-- `DELETE /books/{id}` - Deletes a book and related loans.
-- `GET /loans` - Retrieves all loans.
-- `POST /loans` - Creates a new loan.
+- `POST /author` - Creates a new author.
+- `GET /author-list` - Retrieves all authors.
+- `GET /author/{id}` - Retrieves an author by ID, includes books.
+- `DELETE /author/{id}` - Deletes an author along with related books and loans.
+- `POST /book` - Creates a new book.
+- `GET /author/{id}` - Retrieves a book by ID, includes loans.
+- `GET /book-list` - Retrieves all books.
+- `DELETE /book/{id}` - Deletes a book and related loans.
+- `POST /loan` - Creates a new loan.
+- `GET /loan` - Retrieves a loan by ID, includes the related book.
+- `GET /loan-list` - Retrieves all loans.
+
 
 ## Setup Instructions
 1. **Clone the Repository**
 ```bash
-git clone https://github.com/your-username/gothic-api.git
-cd gothic-api
+git clone https://github.com/mramoul/LibraryApi.git
+cd LibraryApi
 ```
 
 2. **Install PostgreSQL & Docker Desktop**
@@ -40,19 +44,15 @@ cd gothic-api
 - Create a superuser:
 ```bash
 psql -U postgres
-CREATE ROLE gothic_user WITH LOGIN PASSWORD 'password';
-ALTER ROLE gothic_user CREATEDB;
-```
-- Create the database:
-```bash
-CREATE DATABASE gothic_db OWNER gothic_user;
+CREATE ROLE your_user WITH LOGIN PASSWORD 'your_password';
+ALTER ROLE your_user CREATEDB;
 ```
 
 3. **Configure Database**
 - Open `appsettings.Development.json` and update connection strings:
 ```json
 "ConnectionStrings": {
-    "DefaultConnection": "Host=localhost;Port=5432;Database=gothic_db;Username=gothic_user;Password=password"
+    "DefaultConnection": "Host=localhost;Port=5432;Database=library;Username=your_user;Password=your_password"
 }
 ```
 
