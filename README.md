@@ -24,7 +24,7 @@ The project adopts Clean Architecture, separating the application into distinct 
 - `GET /author/{id}` - Retrieves an author by ID, includes books.
 - `DELETE /author/{id}` - Deletes an author along with related books and loans.
 - `POST /book` - Creates a new book.
-- `GET /author/{id}` - Retrieves a book by ID, includes loans.
+- `GET /book/{id}` - Retrieves a book by ID, includes loans.
 - `GET /book-list` - Retrieves all books.
 - `DELETE /book/{id}` - Deletes a book and related loans.
 - `POST /loan` - Creates a new loan.
