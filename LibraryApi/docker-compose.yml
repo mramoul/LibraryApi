@@ -6,8 +6,8 @@ services:
     container_name: library_db
     restart: always
     environment:
-      POSTGRES_USER: sami
-      POSTGRES_PASSWORD: 123abc
+      POSTGRES_USER: your_user
+      POSTGRES_PASSWORD: your_password
       POSTGRES_DB: library  # The name of your database
     ports:
       - "5432:5432"  # Exposing port for PostgreSQL
