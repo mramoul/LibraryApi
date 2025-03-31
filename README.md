@@ -73,7 +73,7 @@ docker-compose up --build -d
 - Access the application: [http://localhost:5001/swagger](http://localhost:5001/swagger/index.html)
 
 ## Known Issues
-- API container might not start properly; manually restart the container in Docker Desktop if needed.
+- API container might not work properly; manually restart the container in Docker Desktop if needed.
 
 ## Future Enhancements
 - **Fluent Validation:** Implement request validation and data sanitization.
