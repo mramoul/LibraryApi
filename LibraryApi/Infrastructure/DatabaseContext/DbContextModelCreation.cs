@@ -7,12 +7,12 @@ namespace LibraryApi.Infrastructure.DataBaseContext
     {
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        ConfigureAuthor(modelBuilder);
+            ConfigureAuthor(modelBuilder);
             ConfigureBook(modelBuilder);
             ConfigureLoan(modelBuilder);
     }
 
-    private void ConfigureAuthor(ModelBuilder modelBuilder)
+    private static void ConfigureAuthor(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Author>()
             .HasMany(a => a.Books)
