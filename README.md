@@ -57,15 +57,15 @@ ALTER ROLE your_user CREATEDB;
 ```
 
 4. **Configure Docker Compose**
-- Open `docker-compose.yml` and update the database connection strings:
+- Open `docker-compose.yml` and update the database connection strings with your previous super user credential :
 ```
 environment:
       POSTGRES_USER: your_user
       POSTGRES_PASSWORD: your_password
-      POSTGRES_DB: library  # The name of your database
+      POSTGRES_DB: library
 ```
 
-4. **Build and Run the Application**
+5. **Build and Run the Application**
 ```bash
 docker-compose up --build -d
 ```
