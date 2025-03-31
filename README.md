@@ -61,7 +61,7 @@ ALTER ROLE your_user CREATEDB;
 docker-compose up --build -d
 ```
 - Open Docker Desktop, locate the API container, and restart if needed.
-- Access the application: [http://localhost:5000/swagger](http://localhost:5000/swagger)
+- Access the application: [http://localhost:5000/swagger](http://localhost:5001/swagger/index.html)
 
 ## Known Issues
 - API container might not start properly; manually restart the container in Docker Desktop if needed.
