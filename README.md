@@ -1,7 +1,7 @@
-# Gothic API
+# Library API
 
 ## Overview
-Gothic API is a microservices-based application following the principles of Clean Architecture. It provides endpoints for managing authors, books, and loans in a library management system. The project is designed for scalability, separation of concerns, and maintainability.
+Library API is a microservices-based application following the principles of Clean Architecture. It provides endpoints for managing authors, books, and loans in a library management system. The project is designed for scalability, separation of concerns, and maintainability.
 
 ## Architecture
 The project adopts Clean Architecture, separating the application into distinct layers:
